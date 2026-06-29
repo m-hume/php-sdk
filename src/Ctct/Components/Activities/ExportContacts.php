@@ -23,7 +23,7 @@ class ExportContacts extends Component {
      * @param array $lists - array of list id's to export from
      * @return ExportContacts
      */
-    public function __construct(Array $lists = null) {
+    public function __construct(?Array $lists = null) {
         if (!$lists == null) {
             $this->lists = $lists;
         }

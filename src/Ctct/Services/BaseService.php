@@ -33,7 +33,7 @@ abstract class BaseService {
      * @param string $apiKey - Constant Contact API Key
      * @param ClientInterface|null $client - GuzzleHttp Client
      */
-    public function __construct($apiKey, ClientInterface $client = null) {
+    public function __construct($apiKey, ?ClientInterface $client = null) {
         $this->apiKey = $apiKey;
         $this->client = $client ?: new Client();
     }
@@ -96,6 +96,7 @@ abstract class BaseService {
      * @return CtctException
      */
     protected function convertException($exception) {
+		// var_dump($exception);
         if ($exception instanceof ClientException || $exception instanceof ServerException) {
             $ctctException = new CtctException($exception->getResponse()->getReasonPhrase(), $exception->getCode());
         } else {

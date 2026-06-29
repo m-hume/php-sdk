@@ -82,7 +82,7 @@ class ConstantContact {
      * @param string $apiKey - Constant Contact API Key
      * @param ClientInterface|null $client - GuzzleHttp Client
      */
-    public function __construct($apiKey, ClientInterface $client = null) {
+    public function __construct($apiKey, ?ClientInterface $client = null) {
         $client = $client ?: new Client();
 
         $this->contactService = new ContactService($apiKey, $client);
